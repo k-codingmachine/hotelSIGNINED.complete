@@ -1,0 +1,149 @@
+.sertchWrap {display:none !important;}
+
+h2, h5 {
+    text-align: center;
+    margin-top: 0;
+}
+
+h2 {
+    font-size: 45px;
+    margin: 0; 
+}
+
+
+h5 {
+    font-size: 20px;
+    font-weight: lighter;
+    margin-top:30px;
+}
+
+.info-title{
+	 text-align: center;
+	 font-size: 45px;
+	 margin-top: 250px;
+ }
+ 
+.col-box {
+	margin:0 auto;
+	width:720px;
+	margin-bottom: 10px;
+	margin-top: 30px;
+}
+
+.col_input {margin-bottom:40px;}
+
+.center{
+	display:flex;
+	align-items: center;
+	justify-content:center;
+}
+.input-title {
+	font-size: 20px;
+    margin-bottom: 10px; 
+    font-weight: bold;
+}
+
+.reservationBox {
+    color: #333;
+    vertical-align: top;
+    font-size: 16px;
+    font-weight: 400;
+    width: 100%; 
+    box-sizing: border-box;
+    height:50px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.inquiry-hr{
+	margin: 40px 0px;
+}
+.submitButton{
+	background-color: #ad9e87;
+	width: 360px;
+    color: #fff;
+    font-size: 18px;
+    line-height: 50px;
+    border: 0;
+    border-radius: 0;
+	text-align: center;
+	display: block;
+	cursor: pointer;
+	margin:40px auto 80px;
+}
+.submitButton:hover { 
+    background: #685f51; 
+}
+.alert-message{
+	margin-bottom: 20px;
+	color: red;
+}
+label {
+    font-weight: 400;
+    text-align: left;
+    margin: 0;
+    display: inline-block;
+    max-width: 100%;
+    cursor: default;
+    box-sizing: border-box;
+}
+
+body{ overflow: auto;}
+
+.reservation-room-info{width: 100%;}
+
+.reservation-room-img {width:700px; height:432px; margin-right:50px; display:inline-block; }
+
+.reservation-room-img > img {width:100%; height:100%;}
+
+
+
+.txt-area {padding:40px 0 0; display:inline-block; width:560px; height:432px; vertical-align: top; border-bottom: 1px solid #ddd;}
+
+.txt-area li { margin-bottom: 40px;}
+
+.type {text-align: left; font-size:16px; width:24%; min-width:80px; display: inline-block; color:#333; font-weight:600;}
+
+.info{text-align: left; font-size:16px; color:#333; font-weight:500;}
+
+
+.totalprice{
+	border-bottom: 1px solid #dcdcdc;
+	height: 70px;
+	margin:50px 0;
+	text-align: right;
+	position:relative;
+}
+.total-price {font-size: 26px; position:absolute; top:0; right:47%;}
+
+.total-number{
+    font-size: 26px;
+   	text-align: right;
+}
+.reservation-title{
+	font-size: 22px;
+	margin-top: 100px;
+	text-align: center;
+}
+
+
+
+
+
+
+
+
+/* 예약 정보 입력 강조 */
+.stepProcess {padding-top:120px; margin-bottom:60px;}
+.process_col {display: block; letter-spacing: 0; max-width:1170px; margin:24px auto 24px; padding:0 20px; text-align: center; }
+.process_col li {position:relative; display: inline-block; padding-right:60px;}
+.process_col li:nth-child(3) > a{color:#ad9e87;}
+.process_col li::before {content:""; position:absolute; right:-4px; top:calc(50% - 1px); width:40px; height:2px; background:#dcdcdc;}
+.process_col li:last-child::before {background:#fff;}
+
+.process_col li a {position:relative; display: block; padding-left:34px; line-height: 40px; font-size:16px; color:#999; font-weight:600;}
+
+.list_first > a::before {content:"1"; position:absolute; left:0; top:calc(50% - 12px); width:24px; height:24px; border-radius: 50%; text-align: center; line-height:22px; border:1px solid #999; font-size:14px; background: #999; color:#fff;}
+
+.list_second > a::before {content:"2"; position:absolute; left:0; top:calc(50% - 12px); width:24px; height:24px; border-radius: 50%; text-align: center; line-height:22px; border:1px solid #999; font-size:14px; background: #999; color:#fff;}
+
+.list_third > a::before {content:"3"; position:absolute; left:0; top:calc(50% - 12px); width:24px; height:24px; border-radius: 50%; text-align: center; line-height:22px; border:1px solid #ad9e87; font-size:14px; background: #ad9e87; color:#fff;}
