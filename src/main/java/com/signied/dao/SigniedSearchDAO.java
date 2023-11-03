@@ -61,25 +61,23 @@ public class SigniedSearchDAO {
 
 		List<RoomVO> list = new ArrayList<RoomVO>();
 		// 주어진 체크인/체크아웃 날짜에 사용 가능하며 주어진 인원 수를 수용할 수 있는 방들의 정보를 가격 오름차순으로 가져옴.
-		String sql =  "WITH date_range AS (\n"
-	            + "    SELECT TO_DATE(?, 'YYYY-MM-DD') + LEVEL - 1 as the_date\n"
-	            + "    FROM dual\n"
-	            + "    CONNECT BY LEVEL <= TO_DATE(?, 'YYYY-MM-DD') - TO_DATE(?, 'YYYY-MM-DD')\n"
-	            + "),\n"
-	            + "\n"
-	            + "reservation_counts AS (\n"
-	            + "    SELECT res.roomNum, COUNT(DISTINCT d.the_date) AS reserved_days\n"
-	            + "    FROM reservation res\n"
-	            + "    JOIN date_range d ON res.checkIn <= d.the_date AND res.checkOut > d.the_date\n"
-	            + "    GROUP BY res.roomNum\n"
-	            + ")\n"
-	            + "\n"
-	            + "SELECT r.roomNum, r.roomName, r.roomType, r.viewType, r.roomCapacity, r.roomPrice, r.inventory, r.img\n"
-	            + "FROM room r\n"
-	            + "LEFT JOIN reservation_counts rc ON r.roomNum = rc.roomNum\n"
-	            + "WHERE r.roomCapacity >= ? \n"
-	            + "AND COALESCE(rc.reserved_days, 0) < r.inventory\n"
-	            + "ORDER BY r.roomPrice ASC";
+		String sql = "WITH date_range AS (\n"
+				+ "    SELECT TO_DATE(?, 'YYYY-MM-DD') + LEVEL - 1 as the_date\n"
+				+ "    FROM dual\n"
+				+ "    CONNECT BY LEVEL <= TO_DATE(?, 'YYYY-MM-DD') - TO_DATE(?, 'YYYY-MM-DD')\n"
+				+ ")\n"
+				+ ", booked_rooms AS (\n"
+				+ "    SELECT roomNum\n"
+				+ "    FROM reservation\n"
+				+ "    JOIN date_range d ON reservation.checkIn <= d.the_date AND reservation.checkOut > d.the_date\n"
+				+ "    GROUP BY roomNum\n"
+				+ "    HAVING COUNT(*) >= (SELECT inventory FROM room WHERE roomNum = reservation.roomNum)\n"
+				+ ")\n"
+				+ "SELECT DISTINCT r.roomNum, r.roomName, r.roomType, r.viewType, r.roomCapacity, r.roomPrice, r.inventory, r.img\n"
+				+ "FROM room r\n"
+				+ "WHERE r.roomCapacity >= ?\n"
+				+ "AND r.roomNum NOT IN (SELECT roomNum FROM booked_rooms)\n"
+				+ "ORDER BY r.roomPrice ASC";
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;

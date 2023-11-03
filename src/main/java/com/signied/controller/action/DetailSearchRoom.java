@@ -26,6 +26,7 @@ public class DetailSearchRoom implements Action {
 	    
 	    int totalAmount = Integer.parseInt(request.getParameter("adultCount"))
 	            + Integer.parseInt(request.getParameter("childCount"));
+	    
 	    List<RoomVO> roomList = sDao.searchRoom(checkIn, checkOut, totalAmount);
 
 	    // 상세 검색 로직 (roomList를 기반으로 상세 검색)

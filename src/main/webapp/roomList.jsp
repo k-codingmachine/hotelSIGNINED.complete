@@ -194,6 +194,8 @@
 			<form action="HotelServlet" method="post" name="frm" id="sortFrm">
 				<input type="hidden" name="command" value="detail_search"
 					class="command" />
+				<input type="hidden" name="originCheckIn" value="${originCheckIn}"/>
+				<input type="hidden" name="originCheckOut" value="${originCheckOut}"/>
 				<div class="detailSerach_sort">
 					<!-- body영역 정렬 기준 : 낮은 가격순, 높은 가격순 = 가격을 가져와서 asc, desc 하는 정렬 sql구문을 사용해서 정렬해준다.
                   오름 차순 : ASC 내림차순 : DESC -->

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>비밀번호 확인</title>
+<title>Insert title here</title>
 <link rel="stylesheet" href="css/passcheck.css">
 <script src="js/ReservationCheck.js" type="text/javascript"></script>
 </head>
